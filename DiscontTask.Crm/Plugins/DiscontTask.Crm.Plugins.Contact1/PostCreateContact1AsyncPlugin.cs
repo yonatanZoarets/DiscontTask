@@ -36,7 +36,7 @@ namespace DiscontTask.Crm.Plugins.Contact1
                 toParty["addressused"] = entity.Attributes["new_emailaddress"];
 
                 EntityReference createdByRef = (EntityReference)entity.Attributes["createdby"];
-                Entity createdBy = service.Retrieve(createdByRef.LogicalName, createdByRef.Id, new ColumnSet("fullname"));
+                Entity createdBy = service.Retrieve(createdByRef.LogicalName, createdByRef.Id, new ColumnSet("fullname"));//systemuser
 
 
                 // 2. Create the Email Activity Record instance

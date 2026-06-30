@@ -26,6 +26,9 @@ namespace DiscontTask.Crm.Plugins.Contact1
 
                 Entity entity = (Entity)context.InputParameters["Target"];
 
+                //in this case I made only regex validation
+                //no new_emailaddress attribute - key will not be found.
+                //if we want it will never be empty - we will make this field required.
                 if (entity.Attributes.Contains("new_emailaddress"))
                 {
                     var emailAddress = entity.Attributes["new_emailaddress"].ToString();

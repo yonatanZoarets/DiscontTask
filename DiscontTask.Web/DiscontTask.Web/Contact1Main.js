@@ -45,7 +45,7 @@ var Contact1Main = (function () {
                 };
             }
         };
-
+        //call the custom action
         Xrm.WebApi.execute(execute_ValidateEmailAdress_Request).then(
             function success(response) {
                 if (response.ok) {
@@ -75,6 +75,7 @@ var Contact1Main = (function () {
             formContext.getAttribute("new_birthdate").setValue(null);
             formContext.getControl("new_birthdate").setNotification("לא ניתן לבחור תאיך מאוחר מאתמול", "birthdateNotification");
 
+            //3 seconds is enough - just clear, notify and remove
             setTimeout(() => {
                 formContext.getControl("new_birthdate").clearNotification("birthdateNotification");
             }, 3000);
@@ -89,6 +90,8 @@ var Contact1Main = (function () {
 
     const onSave = function (executionContext) {
         const formContext = executionContext.getFormContext();
+
+        //also on save - make it disabled immediately when it created.
         disableEmailFieldOnUpdate(formContext);
     }
     return {
