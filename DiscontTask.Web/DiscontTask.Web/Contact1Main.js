@@ -30,7 +30,7 @@ var Contact1Main = (function () {
     };
     const setNotificationOnInvalidEmailAddress = function (formContext) {
 
-        const emailAddressValue = formContext.getAttribute("new_emailaddress").getValue() ?? "";
+        const emailAddressValue = formContext.getAttribute("new_emailaddress").getValue() ?? "";//if empty -> send empty string, not null
         var execute_ValidateEmailAdress_Request = {
             // Parameters
             emailAddress: emailAddressValue, // Edm.String
