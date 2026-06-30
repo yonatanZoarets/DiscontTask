@@ -37,7 +37,7 @@ namespace DiscontTask.Crm.Plugins.Contact1
 
                 EntityReference createdByRef = (EntityReference)entity.Attributes["createdby"];
                 Entity createdBy = service.Retrieve(createdByRef.LogicalName, createdByRef.Id, new ColumnSet("fullname"));//systemuser
-
+                //retrieve - name its not on the entity reference
 
                 // 2. Create the Email Activity Record instance
                 Entity email = new Entity("email");
